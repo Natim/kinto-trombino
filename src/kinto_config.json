@@ -1,0 +1,152 @@
+{
+  "collections": {
+    "people": {
+      "attachment": {
+        "enabled": true, 
+        "required": false
+      }, 
+      "displayFields": [
+        "name", 
+        "company",
+        "role",
+        "email",
+        "phone"
+      ], 
+      "schema": {
+        "required": [
+          "name",
+          "company"
+        ],
+        "description": "Ajoutez une personne de l'incubateur",
+        "type": "object",
+        "title": "Personne",
+        "properties": {
+          "name": {
+            "description": "Marianne Laurent",
+            "type": "string",
+            "default": "",
+            "title": "Name"
+          },
+          "company": {
+            "description": "Nom de l'entreprise",
+            "type": "string",
+            "default": "",
+            "title": "Entreprise"
+          },
+          "role": {
+            "description": "Rôle au sein de l'entreprise",
+            "type": "string",
+            "default": "",
+            "title": "Rôle"
+          },
+          "email": {
+            "description": "Adresse email",
+            "type": "string",
+            "default": "",
+            "title": "E-mail"
+          },
+          "phone": {
+            "description": "Numéro de téléphone",
+            "type": "string",
+            "default": "",
+            "title": "Téléphone"
+          },
+          "twitter": {
+            "description": "Login twitter",
+            "type": "string",
+            "default": "",
+            "title": "Twitter"
+          },
+          "website": {
+            "description": "URL du site internet",
+            "type": "string",
+            "default": "",
+            "title": "Site internet"
+          },
+          "linkedin": {
+            "type": "string",
+            "default": "",
+            "title": "Linked-in"
+          },
+          "irc": {
+            "type": "string",
+            "default": "",
+            "title": "Pseudo IRC/Slack"
+          },
+          "tags": {
+            "items": {
+              "type": "string",
+              "default": "",
+              "title": "Tag"
+            },
+            "title": "Tags",
+            "default": [],
+            "uniqueItems": true,
+            "description": "Tags décrivant les centres d'intérêts et de compétences",
+            "type": "array"
+          }
+        }
+      }
+    },
+    "uiSchema": {
+      "ui:order": [
+        "name",
+        "company",
+        "role",
+        "email",
+        "phone",
+        "website",
+        "twitter",
+        "irc",
+        "linkedin",
+        "tags"
+      ]
+    },
+  "companies": {
+    "schema": {
+      "attachment": {
+        "enabled": true, 
+        "required": false
+      }, 
+      "displayFields": [
+        "name", 
+        "website",
+        "twitter"
+      ], 
+      "required": [
+        "name"
+      ],
+      "description": "Ajoutez une entreprise de l'incubateur",
+      "type": "object",
+      "title": "Entreprise",
+      "properties": {
+          "name": {
+            "description": "Marianne Laurent",
+            "type": "string",
+            "default": "",
+            "title": "Name"
+          },
+          "twitter": {
+            "description": "Login twitter",
+            "type": "string",
+            "default": "",
+            "title": "Twitter"
+          },
+          "website": {
+            "description": "URL du site internet",
+            "type": "string",
+            "default": "",
+            "title": "Site internet"
+          }
+        }
+      }
+    },
+    "uiSchema": {
+      "ui:order": [
+        "name",
+        "website",
+        "twitter"
+      ]
+    }
+  }
+}
