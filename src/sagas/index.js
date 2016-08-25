@@ -15,5 +15,7 @@ export default function* rootSaga(getState) {
     // trombino
     takeEvery(c.TROMBINO_CREATE, trombinoSagas.trombinoCreate, getState),
     takeEvery(c.TROMBINO_LOAD, trombinoSagas.trombinoLoad, getState),
+    takeEvery(c.TROMBINO_PEOPLE_FORM_LOAD, trombinoSagas.trombinoPeopleFormLoad, getState),
+    takeEvery(c.TROMBINO_ADD_PEOPLE, trombinoSagas.trombinoAddPeople, getState),
   ];
 }

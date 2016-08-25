@@ -3,11 +3,6 @@ import { Link } from "react-router";
 
 
 export default class TrombinoHome extends Component {
-  selectOnFocus(e) {
-    const target = e.target;
-    setTimeout(() => target.select(), 0);
-  }
-
   render() {
     const {
       title,

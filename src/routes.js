@@ -5,6 +5,7 @@ import App from "./containers/App";
 import HomePage from "./containers/HomePage";
 import TrombinoPage from "./containers/TrombinoPage";
 import TrombinoHome from "./containers/TrombinoHome";
+import TrombinoAddPeople from "./containers/TrombinoAddPeople";
 import atob from "atob";
 
 import * as trombinoActions from "./actions/trombino";
@@ -43,6 +44,9 @@ export default function getRoutes(store) {
       <IndexRoute components={{...common, content: HomePage}} />
       <Route path="/trombino"
         components={{...common, content: TrombinoPage}} />
+      <Route path="/trombino/add-people/:payload"
+        components={{...common, content: TrombinoAddPeople}}
+        onEnter={loadAction(store, [trombinoActions.trombinoLoadPeopleForm])}/>
       <Route path="/trombino/:payload"
         components={{...common, content: TrombinoHome}}
         onEnter={loadAction(store, [trombinoActions.trombinoLoad])}/>

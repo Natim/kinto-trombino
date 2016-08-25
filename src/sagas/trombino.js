@@ -3,7 +3,7 @@ import { put } from "redux-saga/effects";
 import btoa from "btoa";
 import KintoClient from "kinto-http";
 
-import { trombinoCreated, trombinoLoaded } from "../actions/trombino";
+import { trombinoCreated, trombinoLoaded, trombinoPeopleFormLoaded } from "../actions/trombino";
 import config from "../kinto_config.json";
 
 
@@ -54,16 +54,23 @@ export function* trombinoLoad(getState, action) {
   yield put(trombinoLoaded(title, server, bucket, companies, people));
 }
 
-
-export function* voteSubmit(getState, action) {
-  const {note} = action;
-  const record = {note, submitted: new Date().toISOString()};
-
-  const {trombino: trombinoState} = getState();
-  const {server, bucket, collection} = trombinoState.trombino;
+export function* trombinoPeopleFormLoad(getState, action) {
+  const {info} = action;
+  const {server, bucket} = info;
   const client = new KintoClient(server);
-  yield client.bucket(bucket)
-              .collection(collection)
-              .createRecord(record);
-  yield put(updatePath("/thanks"));
+  const {title} = yield client.bucket(bucket).getData();
+  const companies = yield client.bucket(bucket).collection("companies").listRecords({"sort": "name"});
+  const people = yield client.bucket(bucket).collection("people").getData();
+  yield put(trombinoPeopleFormLoaded(title, server, bucket, people, companies));
+}
+
+export function* trombinoAddPeople(getState, action) {
+  const {info} = action;
+  const {server, bucket, formData} = info;
+  const client = new KintoClient(server);
+  const headers = {Authorization: "Basic " + btoa(`token:${btoa(Math.random())}`)};
+  yield client.bucket(bucket).collection("people").createRecord(formData, {headers});
+  const payload = btoa(JSON.stringify({server, bucket}));
+  yield put(trombinoPeopleAdded());
+  yield put(updatePath(`/trombino/${payload}`));
 }
