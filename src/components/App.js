@@ -15,7 +15,7 @@ export default class App extends Component {
         <footer>
           <div className="footer-copyright">
             <div className="container">
-            © 2016 Powered by <a className="grey-text text-lighten-3" href="https://kinto.readthedocs.io">Kinto</a>
+            © 2016 Powered by <a href="https://kinto.readthedocs.io">Kinto</a> — <a href="https://github.com/Natim/trombino">Improve the Trombino</a>
             </div>
           </div>
         </footer>

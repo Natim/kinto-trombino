@@ -39,8 +39,8 @@ export default class TrombinoHome extends Component {
                     <img src={person.attachment.location}/>
                     <p className="name">{person.name}</p>
                     <p className="role">{person.role}</p>
-                    <p className="email"><a href="mailto:{person.email}">E-mail</a></p>
-                    <p className="phone"><a href="mailto:{person.phone}">{person.phone}</a></p>
+                    <p className="email"><a href={`mailto:${person.email}`}>E-mail</a></p>
+                    <p className="phone"><a href={`tel:${person.phone}`}>{person.phone}</a></p>
                   </div>
                 );
               }) : ""}
