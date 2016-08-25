@@ -5,8 +5,10 @@ import btoa from "btoa";
 import TrombinoHome from "../components/TrombinoHome";
 
 function mapStateToProps(state) {
-  const {title, companies, people} = state.trombino;
+  const {title, server, bucket, companies, people} = state.trombino;
+  const payload = btoa(JSON.stringify({server, bucket}));
   return {
+    displayPath: `/trombino/add-people/${payload}`,
     title,
     companies,
     people,

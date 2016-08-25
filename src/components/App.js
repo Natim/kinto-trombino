@@ -5,6 +5,7 @@ import { Link } from "react-router";
 export default class App extends Component {
   render() {
     const {
+      displayPath,
       content,
     } = this.props;
     return (
@@ -15,7 +16,7 @@ export default class App extends Component {
         <footer>
           <div className="footer-copyright">
             <div className="container">
-            © 2016 Powered by <a href="https://kinto.readthedocs.io">Kinto</a> — <a href="https://github.com/Natim/trombino">Improve the Trombino</a>
+        © 2016 Powered by <a href="https://kinto.readthedocs.io">Kinto</a> — <a href="https://github.com/Natim/kinto-trombino">Improve the Trombino</a>
             </div>
           </div>
         </footer>

@@ -5,6 +5,7 @@ import { Link } from "react-router";
 export default class TrombinoHome extends Component {
   render() {
     const {
+      displayPath,
       title,
       companies,
       people
@@ -53,6 +54,7 @@ export default class TrombinoHome extends Component {
               <hr className="clear"/>
             </div>);
         }) : ""}
+        <Link className="btn" target="blank" to={displayPath}>Ajouter quelqu'un</Link>
       </div>
     );
   }
