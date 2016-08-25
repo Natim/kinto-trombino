@@ -9,7 +9,6 @@ import * as routeActions from "./actions/route";
 
 import "../css/styles.css";
 
-
 const store = configureStore();
 
 syncHistoryWithStore(hashHistory, store);

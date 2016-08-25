@@ -17,7 +17,7 @@ export default class TrombinoHome extends Component {
     return (
       <div id="trombino-details">
         <h3>{title ? `${title}` : ""}</h3>
-        {companies ? companies.data.map((company) => {
+        {companies ? companies.data.map((company, kc) => {
           let company_logo = "";
 
           if (company.attachment) {
@@ -26,21 +26,31 @@ export default class TrombinoHome extends Component {
             );
           }
 
+
           return (
-            <div className="company">
+              <div className="company" key={kc}>
               {company_logo}
               <h4><a href={company.website ? company.website : "#"}>{company.name}</a></h4>
               <p className="company-description">{company.description}</p>
               {people ? people.data.filter((person) => {
                 return person.company == company.name;
-              }).map((person) => {
+              }).map((person, kp) => {
+                let website, linkedin, twitter;
+                if (person.website) website = <span className="website">— <a href={person.website}>Web</a></span>;
+                if (person.linkedin) linkedin = <a href={person.linkedin}>IN</a>;
+                if (person.twitter) twitter = (
+                  <span className="twitter">— <a href={person.twitter.replace('@', 'https://twitter.com/')}>
+                    {person.twitter.replace('https://twitter.com/', '@')}
+                  </a></span>
+                );
                 return (
-                  <div className="people">
+                    <div className="people" key={kp}>
                     <img src={person.attachment.location}/>
                     <p className="name">{person.name}</p>
                     <p className="role">{person.role}</p>
                     <p className="email"><a href={`mailto:${person.email}`}>E-mail</a></p>
                     <p className="phone"><a href={`tel:${person.phone}`}>{person.phone}</a></p>
+                    <p className="social">{linkedin}{twitter}{website}</p>
                   </div>
                 );
               }) : ""}

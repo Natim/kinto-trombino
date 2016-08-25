@@ -2,16 +2,16 @@
   "collections": {
     "people": {
       "attachment": {
-        "enabled": true, 
+        "enabled": true,
         "required": false
-      }, 
+      },
       "displayFields": [
-        "name", 
+        "name",
         "company",
         "role",
         "email",
         "phone"
-      ], 
+      ],
       "schema": {
         "required": [
           "name",
@@ -105,14 +105,14 @@
   "companies": {
     "schema": {
       "attachment": {
-        "enabled": true, 
+        "enabled": true,
         "required": false
-      }, 
+      },
       "displayFields": [
-        "name", 
+        "name",
         "website",
         "twitter"
-      ], 
+      ],
       "required": [
         "name"
       ],
