@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: process.env.HAPPINESS_PUBLIC_PATH || "/",
+    publicPath: process.env.PUBLIC_PATH || "/",
   },
   plugins: [
     new ExtractTextPlugin("styles.css", {allChunks: true}),

@@ -1,35 +1,49 @@
-button.vote {
-  border: none;
-  background: inherit;
-  height: 20vh;
-
-  background-repeat: no-repeat;
-  background-position-x: 50%;
-  color: transparent;
+.company {
+	border: 3px solid black;
+	padding: 10px;
+	margin: 10px 0;
 }
 
-button.vote.unhappy {
-  background-image: url("./1f61e.svg");
-}
-button.vote.neutral {
-  background-image: url("./1f610.svg");
-}
-button.vote.happy {
-  background-image: url("./1f603.svg");
+.company h4 a {
+	color: black;
 }
 
-#thanks span {
-  margin-right: 1em;
+.company h4 a:hover {
+	font-style: italic;
 }
 
-#charts .ct-series-a .ct-bar {
-  stroke: #f05b4f;
+.company img {
+	border: 0;
+	max-width: 250px;
+	max-height: 150px;
+	display: block;
+	float: right;
 }
 
-#charts .ct-series-b .ct-bar {
-  stroke: #f4c63d;;
+.people {
+	width: 150px;
+	float: left;
 }
 
-#charts .ct-series-c .ct-bar {
-  stroke: #129E17;
+.people img {
+	max-width: 150px;
+	height: 120px;
+	display: block;
+	padding: 0 5px;
+	margin: auto;
+}
+
+.people p {
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+   
+.people .name {
+	font-weight: bold;
+}
+
+.clear {
+	border: 0;
+	clear: both;
 }

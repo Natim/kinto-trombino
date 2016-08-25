@@ -49,8 +49,8 @@ export function* trombinoLoad(getState, action) {
   const {server, bucket} = info;
   const client = new KintoClient(server);
   const {title} = yield client.bucket(bucket).getData();
-  const companies = yield client.bucket(bucket).collection("companies").listRecords();
-  const people = yield client.bucket(bucket).collection("people").listRecords();
+  const companies = yield client.bucket(bucket).collection("companies").listRecords({"sort": "name"});
+  const people = yield client.bucket(bucket).collection("people").listRecords({"sort": "role"});
   yield put(trombinoLoaded(title, server, bucket, companies, people));
 }
 
