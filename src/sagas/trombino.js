@@ -3,7 +3,7 @@ import { put } from "redux-saga/effects";
 import btoa from "btoa";
 import KintoClient from "kinto-http";
 
-import { trombinoCreated, trombinoLoaded, trombinoPeopleFormLoaded } from "../actions/trombino";
+import { trombinoCreated, trombinoLoaded, trombinoPeopleFormLoaded, trombinoPeopleAdded } from "../actions/trombino";
 import config from "../kinto_config.json";
 
 

@@ -30,7 +30,8 @@ export default class TrombinoHome extends Component {
               {people ? people.data.filter((person) => {
                 return person.company == company.name;
               }).map((person, kp) => {
-                let website, linkedin, twitter;
+                let website, linkedin, twitter, avatar;
+                if (person.attachment) avatar = <img src={person.attachment.location}/>;
                 if (person.website) website = <span className="website">— <a href={person.website}>Web</a></span>;
                 if (person.linkedin) linkedin = <a href={person.linkedin}>IN</a>;
                 if (person.twitter) twitter = (
@@ -40,7 +41,7 @@ export default class TrombinoHome extends Component {
                 );
                 return (
                     <div className="people" key={kp}>
-                    <img src={person.attachment.location}/>
+                    {avatar}
                     <p className="name">{person.name}</p>
                     <p className="role">{person.role}</p>
                     <p className="email"><a href={`mailto:${person.email}`}>E-mail</a></p>
