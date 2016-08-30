@@ -20,10 +20,12 @@ export default class TrombinoAddPage extends Component {
 
     form.uiSchema['company'] = {
       "ui:widget": (props) => {
-        console.log(props);
+        var onChange = function(event) {
+          props.onChange(event.target.value);
+        };
         return (
           <div className="input-field col s12">
-            <select className="browser-default" id={props.id} label={props.label} defaultValue={props.value}>
+            <select className="browser-default" id={props.id} label={props.label} defaultValue={props.value} onChange={onChange}>
               <option value="" disabled>Entreprise</option>
               {companies.data.map((company, i) => {
                 return <option key={i} value={company.name}>{company.name}</option>;
